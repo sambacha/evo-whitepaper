@@ -1,7 +1,8 @@
-# Embedded Volumetric Optionality 
+# Embedded Volumetric Optionality
 
-| EVOProtocol | Embededd Volumetric Optionality Protocol |0x... |
-| -------- | -------- | -------- |
+| EVOProtocol | Embededd Volumetric Optionality Protocol | 0x... |
+| ----------- | ---------------------------------------- | ----- |
+
 
 ## Overview
 
@@ -13,8 +14,7 @@ In essence by _acceleration_ and _deceleration_ (i.e. **velocity**) that the spe
 
 Traditionally, commodities (e.g. like precious and rare metals) or assets of much lesser liquidity or even fully illiquid assets (all of which are not without their own limitations), GasEVO approximates its value by utilizing the unit of account- **block time**.
 
-> _Note_ A more accurate representation would be _acceleration_ and _deceleration_ of the velocity of liquidity 
-
+> _Note_ A more accurate representation would be _acceleration_ and _deceleration_ of the velocity of liquidity
 
 ## Utility
 
