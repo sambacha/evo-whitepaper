@@ -125,7 +125,7 @@
 \DeclareOption{framed}{\framedtrue}
 
 \DeclareOption*{% default
-  \PackageWarning{mcode}{Unknown option `\CurrentOption' !}%
+	\PackageWarning{mcode}{Unknown option `\CurrentOption' !}%
 }
 \ProcessOptions
 
@@ -142,22 +142,22 @@
 
 % check if color command exists
 \ifx\color\undefined%
-  \RequirePackage{xcolor}%
+	\RequirePackage{xcolor}%
 \fi
 
 % check if listings has been loaded
 \ifx\lstset\undefined%
-  \iffinal
-    \RequirePackage[final]{listings}
-  \else
-    \RequirePackage{listings}
-  \fi
+	\iffinal
+	\RequirePackage[final]{listings}
+\else
+	\RequirePackage{listings}
+\fi
 \fi
 
 % Check if textcomp has been loaded (this package is needed for
 % upright quotes '' (instead of typographic ones `´)...
 \ifx\textquotesingle\undefined% 
-  \RequirePackage{textcomp}%
+	\RequirePackage{textcomp}%
 \fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -171,52 +171,52 @@
 % ---------------------------------------------------------------------------------
 % matlat languate definition
 \lstdefinelanguage{matlabfloz}{%
-  alsoletter={...},%
-  morekeywords={%                             % keywords
-  break,case,catch,continue,elseif,else,end,for,function,global,%
-  if,otherwise,persistent,return,switch,try,while,...},%
-  comment=[l]\%,                              % comments
-  morecomment=[l]...,                         % comments
-  morecomment=[s]{\%\{}{\%\}},                % block comments
-  morestring=[m]'                             % strings 
-}[keywords,comments,strings]%
+	alsoletter={...},%
+	morekeywords={%                             % keywords
+		break,case,catch,continue,elseif,else,end,for,function,global,%
+	if,otherwise,persistent,return,switch,try,while,...},%
+	comment=[l]\%,                              % comments
+	morecomment=[l]...,                         % comments
+	morecomment=[s]{\%\{}{\%\}},                % block comments
+	morestring=[m]'                             % strings 
+	}[keywords,comments,strings]%
 
 % ---------------------------------------------------------------------------------
 % general definitions
 \lstset{%
-  basicstyle={\lstbasicfont},                 % set font
-  showstringspaces=false,                     % do not emphasize spaces in strings
-  tabsize=4,                                  % number of spaces of a TAB
-  mathescape=false,escapechar=§,              % escape to latex with §...§
-  upquote=true,                               % upright quotes
-  aboveskip={1.5\baselineskip},               % a bit of space above listings
-  columns=fixed                               % nice spacing
+	basicstyle={\lstbasicfont},                 % set font
+	showstringspaces=false,                     % do not emphasize spaces in strings
+	tabsize=4,                                  % number of spaces of a TAB
+	mathescape=false,escapechar=§,              % escape to latex with §...§
+	upquote=true,                               % upright quotes
+	aboveskip={1.5\baselineskip},               % a bit of space above listings
+	columns=fixed                               % nice spacing
 }
 
 % ---------------------------------------------------------------------------------
 % define colours and styles
 \ifbw % use font formating and gray 'colors'
-	\def\mcommentfont{\color[gray]{.75}\itshape} %comments light gray and italic
-  \lstset{language=matlabfloz,                % use our version of highlighting
-    keywordstyle=\bfseries,                   % keywords in bold
-    commentstyle=\mcommentfont,               % comments 
-    stringstyle=\color[gray]{0.5}             % strings darker gray
-  }
+\def\mcommentfont{\color[gray]{.75}\itshape} %comments light gray and italic
+\lstset{language=matlabfloz,                % use our version of highlighting
+	keywordstyle=\bfseries,                   % keywords in bold
+	commentstyle=\mcommentfont,               % comments 
+	stringstyle=\color[gray]{0.5}             % strings darker gray
+}
 \else% notbw => use colors : )
-	\def\mcommentfont{\color[rgb]{.133,.545,.133}} %comments in green
-  \lstset{language=matlabfloz,                % use our version of highlighting
-    keywordstyle=\color[rgb]{0,0,1},          % keywords in blue
-    commentstyle=\mcommentfont,               % comments
-    stringstyle=\color[rgb]{.627,.126,.941}   % strings in purple
-  } 
+\def\mcommentfont{\color[rgb]{.133,.545,.133}} %comments in green
+\lstset{language=matlabfloz,                % use our version of highlighting
+	keywordstyle=\color[rgb]{0,0,1},          % keywords in blue
+	commentstyle=\mcommentfont,               % comments
+	stringstyle=\color[rgb]{.627,.126,.941}   % strings in purple
+} 
 \fi%bw
 
 % ---------------------------------------------------------------------------------
 % automatic line breaking --- warning, this is buggy and
 % doesn't break comments correctly!
 \ifautolinebreaks
-	\newsavebox{\lbreakdots}\sbox{\lbreakdots}{\lstbasicfont\mcommentfont...}
-	\lstset{breaklines=true,breakatwhitespace=true,prebreak=\usebox{\lbreakdots}}
+\newsavebox{\lbreakdots}\sbox{\lbreakdots}{\lstbasicfont\mcommentfont...}
+\lstset{breaklines=true,breakatwhitespace=true,prebreak=\usebox{\lbreakdots}}
 \fi
 
 % ---------------------------------------------------------------------------------
@@ -224,34 +224,34 @@
 % the following is for replacing some matlab relations like >= or ~=
 % by the corresponding LaTeX symbols, which are much easier to read ...
 \ifuseliterate
-	\lstset{%
-	  literate=%
-	    {~}{{$\neg$}}1 %            \neg
-	    {<=}{{\tiny$\leq$}}1 %      \leq
-	    {>=}{{\tiny$\geq$}}1 %      \geq
-	    {~=}{{\tiny$\neq$}}1 %      \neq
-	    {delta}{{\tiny$\Delta$}}1%  \Delta
-	    {iend}{{\fontfamily{pcr}\selectfont end}}3% end when indexing matrix elements
-	}
+\lstset{%
+	literate=%
+	{~}{{$\neg$}}1 %            \neg
+	{<=}{{\tiny$\leq$}}1 %      \leq
+	{>=}{{\tiny$\geq$}}1 %      \geq
+	{~=}{{\tiny$\neq$}}1 %      \neq
+	{delta}{{\tiny$\Delta$}}1%  \Delta
+	{iend}{{\fontfamily{pcr}\selectfont end}}3% end when indexing matrix elements
+}
 \fi%literates
 
 % ---------------------------------------------------------------------------------
 % line numbering
 \ifnumbered% numbered option
-  \lstset{%
-    numbersep=3mm, numbers=left, numberstyle=\tiny, % number style
-  }
+\lstset{%
+	numbersep=3mm, numbers=left, numberstyle=\tiny, % number style
+}
 \fi
 
 \ifframed%   framed option
-  \lstset{%
-    frame=single,                             % frame
-  }
-  \ifnumbered%
-    \lstset{%
-      framexleftmargin=6mm, xleftmargin=6mm   % tweak margins
-    }
-  \fi
+\lstset{%
+	frame=single,                             % frame
+}
+\ifnumbered%
+\lstset{%
+	framexleftmargin=6mm, xleftmargin=6mm   % tweak margins
+}
+\fi
 \fi
 
 \endinput
