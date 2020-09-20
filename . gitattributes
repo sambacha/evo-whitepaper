@@ -1,0 +1,9 @@
+# gitattributes for LaTeX & Documents
+
+*.tex	diff=tex
+* text=auto
+*.pdf  diff=astextplain
+*.PDF  diff=astextplain
+
+.gitattributes export-ignore
+.gitignore export-ignore
