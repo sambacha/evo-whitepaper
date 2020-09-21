@@ -1,3 +1,34 @@
 \chapter{Reference}\label{sec:something}
 
+    \begin{algorithm}
+    \caption{Discounted Interest Rate}\label{euclid}
+    \hspace*{\algorithmicindent} \textbf{Input} \\
+    \hspace*{\algorithmicindent} \textbf{Output} 
+    \begin{algorithmic}[1]
+    \Procedure{MyProcedure}{}
+%    \Procedure{MyProcedure}{$x,y$}
+%     % Input:
+%     \Comment{Input: x}
+%     % Output:
+%     \Comment{Output:y}
+    \State $\textit{stringlen} \gets \textit{length of } \textit{string}$
+    \State $i \gets \textit{patlen}$
+    \BState \emph{top}:
+    \If {$i > \textit{stringlen}$} \Return false
+    \EndIf
+    \State $j \gets \textit{patlen}$
+    \BState \emph{loop}:
+    \If {$\textit{string}(i) = \textit{path}(j)$}
+    \State $j \gets j-1$.
+    \State $i \gets i-1$.
+    \State \textbf{goto} \emph{loop}.
+    \State \textbf{close};
+    \EndIf
+    \State $i \gets i+\max(\textit{delta}_1(\textit{string}(i)),\textit{delta}_2(j))$.
+    \State \textbf{goto} \emph{top}.
+    \EndProcedure
+    \end{algorithmic}
+    \end{algorithm}
+
  \cleardoublepage
+
