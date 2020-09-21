@@ -1,23 +1,28 @@
+%% Copyright 2020 All Rights Reserved
+%% SPDX-License-Identifier: GNU General Public License v2.0 only
+%% 
+%% This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; version 2.
+%% This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+%% You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston
+
 \chapter{Introduction}\label{sec:introduction}
 
 EVO Protocol presents an idea of embedded volumetric optionality, which in essence is a mechanism for controllable liquidity through the mechanism of volume. Any asset would be "less" accelerating in price swings depending on the chose parameters. One consequence is that significant volume movements, such as "rug pulls" or legitimate price action movements, incur a cost onto the liquidating party. This, in essence, ensures orderly market liquidation to a degree with an additional benefit of helping provide an orderly unwinding / unwinding period for instruments utilizing the protocol. Instruments may produce predictable inflation rates, enabling them to be lent out through other protocols, furthering market stabilizing effects. Such token can be a reasonable investment choice purposed for the "storage of value".
 
-Key Concepts: Automatic Stabilizers, embedded volumetric optionality, liquidity, transaction unwinding, transaction execution, price stability, self stability
 
-\section{The Preamble}\label{sec:preamble}
+
+\section{Abstract}\label{sec:preamble}
 A Generalized Protocol Specification for Volumetric Manifolds and a reference implementation. Features include an embedded  volumetric mechanism to enforce desired behaviors based upon robust economic incentives.
 %\lstset{language=TeX,numbers=none}
 %\begin{lstlisting}[frame=lines]
 \begin{verbatim}
- \infopage
- \declaration
-\end{verbatim}
+Key Concepts: Automatic Stabilizers, embedded volumetric
+optionality, liquidity, transaction unwinding, 
+transaction execution, price stability, self stability
+ \end{verbatim}
 %\end{lstlisting}
 
 An analogy to help understand these terms is the \textbf{ManifoldSystem}. The \textbf{ManifoldEpoch} is equivalent to the Epoch, the \textbf{ManifoldVolume} is equivalent to the transfer rate, and the \textbf{ManifoldFee} is the Fee for the Transfer Rate. 
 
 
-\begin{verbatim}
- \usepackage[english,mt]{ethidsc}
-\end{verbatim}
-The command \texttt{\textbackslash infopage} prints an information page at the end of the document which you must sign before handing in the report.
+
