@@ -4,12 +4,16 @@
 os: linux
 sudo: require
 dist: xenial
-services: docker
+
+language: generic
+
+git:
+  quiet: true
+
 
 before_install:
- - export LANG=en_GB.UTF-8
  - export LC_ALL=C
  
 script: 
-- chmod +x scripts/ltx_docker.sh
-- “./scripts/ltx_docker.sh latexmk -xelatex -interaction=nonstopmode -halt-on-error main.tex -outdir=./_build”
+- chmod +x seriesci.sh
+- ./seriesci.sh
