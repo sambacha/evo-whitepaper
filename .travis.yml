@@ -1,0 +1,19 @@
+# travis-ci
+#
+
+os: linux
+sudo: require
+dist: xenial
+
+language: generic
+
+git:
+  quiet: true
+
+
+before_install:
+ - export LC_ALL=C
+ 
+script: 
+- chmod +x seriesci.sh
+- ./seriesci.sh
