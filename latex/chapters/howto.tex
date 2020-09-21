@@ -1,4 +1,5 @@
-\chapter{EVO Protocol }\label{sec:evoprotocol}
+\chapter{EVO Protocol}
+\label{sec:evoprotocol}
 
 
 \section{The Manifold System}
@@ -102,11 +103,12 @@ How much an individual account has transferred over the last 25 days
 
 \label{total.individual.avg.transfer.rate}
 \begin{equation}
-	\begin{eqfloat}
-		\operatorname{avg}\left(R_{t+1}(h, a)\right):=\operatorname{avg}\left(R_{t}(h)\right)+a
-		\caption{Total Avg. Transfer Rate for Individual Account}
-	\end{eqfloat}
+	\operatorname{avg}\left(R_{t+1}(h, a)\right):=\operatorname{avg}\left(R_{t}(h)\right)+a
 \end{equation}
+Total Avg. Transfer Rate for Individual Account
+\newline
+
+
 
 \begin{tcolorbox}
 	\subsection{The Total Daily Average Transfer Rate for all holders }
@@ -182,10 +184,11 @@ Utilizing a \textbf{manifold} for such non-liquid assets would enable the $ evo 
 
 
 \section{Architecture}
-\label{architecture}
+
 
 An ERC20 smart contract will contain the information about the balance of every address.
-Floating point math is provided by the excellent library \textt{ABDK libraries-solidity}\footnote{https://github.com/abdk-consulting/abdk-libraries-solidity/blob/ABDKMath64x64.sol at hash: 16d7e1dd8628dfa2f88d5dadab731df7ada70bdd }
+Floating point math is provided by the excellent library \textbf{ABDK libraries-solidity} 
+\footnote{https://github.com/abdk-consulting/abdk-libraries-solidity/blob/ABDKMath64x64.sol at hash: 16d7e1dd8628dfa2f88d5dadab731df7ada70bdd }
 
 See the \textbf{DEVELOPMENT.md} file in the GitHub.com repository.
 
@@ -194,9 +197,8 @@ See the \textbf{DEVELOPMENT.md} file in the GitHub.com repository.
 An implementation of the EVO protocol and its manifold constructs.
 
 \subsection{Protocol Specification}
-The above equation will compute the price for a holder $h$ to purchase a certain amount of `EVO` tokens in exchange for a base deposit in ETH at point in time  $t +1$ \neweline $Dt$ stands for the deposit of ETH in the smart contract at previous time - point
-\newline$St$
-    
+The above equation will compute the price for a holder $h$ to purchase a certain amount of `EVO` tokens in exchange for a base deposit in ETH at point in time  $t +1$  \\
+$Dt$ stands for the deposit of ETH in the smart contract at previous time - point %St$ 
 stands for the total supply of the minted asset \texttt{EVO-} tokens so far.
 
 \subsection{Base Ratio}

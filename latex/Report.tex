@@ -1,42 +1,51 @@
 % http://www.idsc.ethz.ch/education/theses-semester-projects.html
 % IDSC LaTeX Thesis Template
+% 
+% Author(s):	Eric Müller
+% 				Institute for Dynamic Systems and Control
+% 				Swiss Federal Institute of Technology (ETH) Zurich
+% 
+% Created:		2004/04/02  (Eric Mueller)
+% 
+% Notes: Has been tested on Windows 7 + MikTeX + TeXnicCenter
+%
+% Revisions: 	2009/05/29  (Soren Ebbesen)
+% 				    2011/03/22	(Soren Ebbesen)
+%             2013/03/08	(Soren Ebbesen)
+%             2014/03/13	(Soren Ebbesen)
 % ______________________________________________________________________________
 \documentclass[10pt,twoside,a4paper,fleqn]{report}
 
-\usepackage[utf8]{inputenc}
-\usepackage[english,st]{ethidsc} % Special IDSC styles and commands      	
-								 % {german}/english: language of headings, etc.
-								 % {st}/bt/mt: {semester}/bachelor/master thesis
-							
+
+\usepackage[english,st]{ethidsc} 
 % Page header (don't change)____________________________________________________
 \setlength{\parindent}{0em}                 % Disable parindent
 \rhead[\nouppercase{\rightmark}]{\thepage}  % Special headings
 \lhead[\thepage]{\nouppercase{\leftmark}}   % Special headings
 \cfoot{}                                    % Special headings
-\usepackage{colortbl}
-\usepackage{tcolorbox}
-\usepackage{subfigure}
-\usepackage{pagecolor}
 
-\usepackage{amsmath,amssymb}
-\usepackage[T1]{fontenc}
-\usepackage{enumitem}
+
 % Title page (please fill in)___________________________________________________
-\title{^EVO Protocol}
+\title{$EVO$ Protocol}
 
 
 
-\supervision{Streaming Liquidity\\ Reference Protocol & Implementation}
-\date{Sept. 2020}
+
+
+\date{August 2020}
+
+\identification{3e3c4b53a33b917368dba0abffdf96962fd1b680} 		% Project identifier
 
 \infopage
-
+\declaration
 
 % Begin document________________________________________________________________
 \begin{document}
-% Create title page
-						
 
+\maketitle 							% Create title page
+
+
+% Preamble______________________________________________________________________
 
 \pagenumbering{roman} 				% Begin roman page numbering (i,ii,...)
 
@@ -49,7 +58,7 @@
 
 \input{chapters/introduction}
 \cleardoublepage
-\input{chapters/howto}
+
 \cleardoublepage
 % \input{}
 % \cleardoublepage
@@ -68,5 +77,4 @@
 \bibliographystyle{plain}
 \bibliography{bibliography}
 
-\newpage
 \end{document}
