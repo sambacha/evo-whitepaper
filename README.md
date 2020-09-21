@@ -1,20 +1,28 @@
 # Embedded Volumetric Optionality
 
-| EVOProtocol | Embededd Volumetric Optionality Protocol | 0x... |
+| EVOProtocol | Embededd Volumetric Optionality Protocol | v0.8.0 |
 | ----------- | ---------------------------------------- | ----- |
 
 
 ## Overview
 
-In essence by _acceleration_ and _deceleration_ (i.e. **velocity**) that the speed of the ERC20 token transfers (e.g. average transaction rate/mean transaction rate) can help to _counter-balance_ and reduce the market price volatility of the faster base currency (\$ETH). Our focus is on purely-virtual crypto currencies, which are based on computational assets e.g. as BTC, which is based on "mining", or ETH, which is based on computational "GAS".
+EVO tokens are minted and burned on-demand by deposit and withdraw operations directly via the contract.
 
-> _Note_ We call this _Embedded Transactional Optionality_
+> Initiated Protocol Operations
 
-## Token Value
+Deposit
+Withdraw
+Transfer
 
-Traditionally, commodities (e.g. like precious and rare metals) or assets of much lesser liquidity or even fully illiquid assets (all of which are not without their own limitations), GasEVO approximates its value by utilizing the unit of account- **block time**.
+These operations contribute to the transfer rates. Transfer rates are tracked both in aggregate and individually (i.e. per address). The period of time for tracking is the last 25 days
 
-> _Note_ A more accurate representation would be _acceleration_ and _deceleration_ of the velocity of liquidity
+25 days has 36000 minutes, which divided by block_time=4 gives 9000
+
+GasEVO is determined both in aggregate (dynamically) and individually for each address based on transactional (i.e. volumetric transactional information) stored and updated through the smart contract during the previous transactions.
+
+All three operations such as deposit, withdraw and transfer can equally contribute to the transfer rates that are tracked totally and individually(as per holder) by the smart contract for the period of the last 25 days.The token price is determined dynamically(and individually for each holder) based on the information stored or updated in the smart contract during previous transactions:
+
+{equation.gasevo}
 
 ## Utility
 
@@ -27,3 +35,13 @@ Transference of funds _below_ daily volume threshold does not impose any interes
 When the threshold has been exceeded some percentage of tokens gets burned, for the transfer, for deposit or for withdraw of the base instrument (ETH).
 
 Thresholds are tracked individually per address as the average rate and have a function by which they operate on.
+
+## Usage
+
+## Solidity
+
+
+
+## License
+
+SPDX-License-Identifier: GPL-2.0-only
