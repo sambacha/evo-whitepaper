@@ -1,23 +1,14 @@
-% http://www.idsc.ethz.ch/education/theses-semester-projects.html
-% IDSC LaTeX Thesis Template
+% Report Page
 % 
-% Author(s):	Eric Müller
-% 				Institute for Dynamic Systems and Control
-% 				Swiss Federal Institute of Technology (ETH) Zurich
-% 
-% Created:		2004/04/02  (Eric Mueller)
-% 
-% Notes: Has been tested on Windows 7 + MikTeX + TeXnicCenter
-%
-% Revisions: 	2009/05/29  (Soren Ebbesen)
-% 				    2011/03/22	(Soren Ebbesen)
-%             2013/03/08	(Soren Ebbesen)
-%             2014/03/13	(Soren Ebbesen)
+% LaTeX Theme Derived from: http://www.idsc.ethz.ch/education/theses-semester-projects.html
 % ______________________________________________________________________________
 \documentclass[10pt,twoside,a4paper,fleqn]{report}
 
 
-\usepackage[english,st]{ethidsc} 
+\usepackage[english,]{ethidsc} % Special IDSC styles and commands      	
+								 % {german}/english: language of headings, etc.
+								 % {st}/bt/mt: {semester}/bachelor/master thesis
+							
 % Page header (don't change)____________________________________________________
 \setlength{\parindent}{0em}                 % Disable parindent
 \rhead[\nouppercase{\rightmark}]{\thepage}  % Special headings
@@ -26,21 +17,30 @@
 
 
 % Title page (please fill in)___________________________________________________
-\title{$EVO$ Protocol}
+\title{EVO Protocol }
 
 
 
+%\studentA{}
+%\ethidA{}
+%\semesterA{}
+%\emailA{}
 
+%\studentB{Second Student}
+%\ethidB{12-345-678}
+%\semesterB{9}
+%\emailB{second@student.ethz.ch}
 
+\supervision{Draft\\ }
 \date{August 2020}
 
-\identification{3e3c4b53a33b917368dba0abffdf96962fd1b680} 		% Project identifier
+\identification{IDSC-XX-YY-ZZ} 		% Project identifier
 
 \infopage
-\declaration
 
 % Begin document________________________________________________________________
 \begin{document}
+
 
 \maketitle 							% Create title page
 
@@ -59,6 +59,8 @@
 \input{chapters/introduction}
 \cleardoublepage
 
+
+\input{chapters/howto}
 \cleardoublepage
 % \input{}
 % \cleardoublepage
