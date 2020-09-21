@@ -20,21 +20,12 @@
 %==============================================================================
 \def\Presentation@Version{1.1}
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesPackage{ethidsc}[2009/29/05, v. \Presentation@Version]
-\typeout{providing new style definitions and commands ---}
-\typeout{Eric Müller, ETHZ, Switzerland, 2004/04/02}
-\typeout{Maintained by Soren Ebbesen, 2009 ---}
+\ProvidesPackage{ethidsc}[2020/09/05, v. \Presentation@Version]
+\typeout{}
+\typeout{Sam Bacha, 2020/09/02}
+\typeout{github.com/evoprotocol}
 
-\newif\ifingerman
-\DeclareOption{german}{\global\ingermantrue}
-\DeclareOption{english}{\global\ingermanfalse}
 
-\DeclareOption{mt}{\gdef\@type{\ifingerman Masterarbeit\else Protocol Thesis\fi}}
-\DeclareOption{bt}{\gdef\@type{\ifingerman Bachelorarbeit\else Protocol Draft\fi}}
-\DeclareOption{st}{\gdef\@type{\ifingerman Semesterarbeit\else Protocol Specification\fi}}
-
-\ExecuteOptions{german,st}
-\ProcessOptions
 
 \RequirePackage[T1]{fontenc}
 \RequirePackage[utf8]{inputenc}
@@ -52,18 +43,9 @@
 \RequirePackage{booktabs}
 \RequirePackage[dvipdfm]{geometry}
 \RequirePackage{url}
+\usepackage{pgfplots}
 
-\ifingerman
-\RequirePackage{german,ae}
-\fi
-
-\newcommand{\@supervision}{}
-\newcommand{\supervision}[1]{\gdef\@supervision{#1}}
-
-\newcommand{\@studentA}{}
-\newcommand{\studentA}[1]{\gdef\@studentA{#1}}
-
-
+\pgfplotsset{width=10cm,compat=1.9}
 
 
 
@@ -86,19 +68,30 @@
 				{\Huge \bf \@title \par}
 				\vspace{2.5cm} 
 				
+				Embedded Volumetric Optionality \\
+				\\
 				
-				\ifingerman
-				\else
-				Applied Systems and Control\\
-				Tailored Markets Group\\
-				\fi
+				\begin{center}
+					\begin{tikzpicture}[scale=3]
+						\pgfsetfillcolor{lightgray}
+						\foreach \latitude in {-90,-75,...,30}
+						{
+							\foreach \longitude in {0,20,...,360}
+							{
+								\pgfpathmoveto{\pgfpointspherical{\longitude}{\latitude}{1}}
+								\pgfpathlineto{\pgfpointspherical{\longitude+20}{\latitude}{1}}
+								\pgfpathlineto{\pgfpointspherical{\longitude+20}{\latitude+15}{1}}
+								\pgfpathlineto{\pgfpointspherical{\longitude}{\latitude+15}{1}}
+								\pgfpathclose
+							}
+							\pgfusepath{fill,stroke}
+						}
+					\end{tikzpicture}
+				\end{center}
+				
 				\vspace{3.5cm}
 				
-				\ifingerman
-				{\bf Betreuung} \\[1.5ex]
-				\else
-				{\bf Network} \\[1.5ex]
-				\fi
+				
 				\@chainid
 				
 				\vfill
