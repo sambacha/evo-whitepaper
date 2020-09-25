@@ -1,0 +1,13 @@
+\usepackage[printwatermark]{xwatermark}
+\usepackage{xcolor}
+\usepackage{lipsum}
+\newsavebox\mybox
+%% WATERMARKING %%
+\savebox\mybox{\tikz[color=red,opacity=0.3]\node{DRAFT};}
+\newwatermark*[
+  allpages,
+  angle=180,
+  scale=6,
+  xpos=-20,
+  ypos=15
+]{\usebox\mybox}
