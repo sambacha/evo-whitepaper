@@ -1,41 +1,36 @@
-%==============================================================================
-% Protocol Specification Styling File, derived from (ethidsc.sty) Style file
+%=================================================================================
+%                                 Protocol Specification
 % 
 %
 %
-% Original Style: ETHIDSC -- (ethidsc.sty) Style file
-% A LaTeX package providing new style definitions and commands.
-% The ethidsc-package defines a title page and an info page for term papers
-% and master theses written at the Measurement and Control Laboratory
-% of the Swiss Federal Institute of Technology (ETH) Zurich.
-% Author: Eric A. Mueller
-%         Measurement and Control Laboratory
-%         Swiss Federal Institute of Technology (ETH) Zurich
-%         Zurich, Switzerland
+%          .+------+     +------+     +------+     +------+     +------+.
+%        .' |    .'|    /|     /|     |      |     |\     |\    |`.    | `.
+%        +---+--+'  |   +-+----+ |     +------+     | +----+-+   |  `+--+---+
+%        |   |  |   |   | |    | |     |      |     | |    | |   |   |  |   |
+%        |  ,+--+---+   | +----+-+     +------+     +-+----+ |   +---+--+   |
+%        |.'    | .'    |/     |/      |      |      \|     \|    `. |   `. |
+%        +------+'      +------+       +------+       +------+      `+------+
 %
-% Copyright (c) 2004 Eric A. Mueller
-% All rights reserved.
 %
-% ethidsc.sty,v.1.0 2009/29/05
-%
-% Revisions: 	2011/03/22  (Soren Ebbesen)
-%               2013/03/08  (Soren Ebbesen)
+%                                      evo.protocol
+%                                         v0.9.0
 %
 %==============================================================================
-\def\Presentation@Version{1.1}
+
+\def\Presentation@Version{1.2}
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesPackage{ethidsc}[2009/29/05, v. \Presentation@Version]
-\typeout{providing new style definitions and commands ---}
-\typeout{Eric Müller, ETHZ, Switzerland, 2004/04/02}
-\typeout{Maintained by Soren Ebbesen, 2009 ---}
+\typeout{}
+\typeout{see contributors}
+\typeout{see license}
 
 \newif\ifingerman
 \DeclareOption{german}{\global\ingermantrue}
 \DeclareOption{english}{\global\ingermanfalse}
 
-\DeclareOption{mt}{\gdef\@type{\ifingerman Masterarbeit\else Version 1.0.0 Specification\fi}}
-\DeclareOption{bt}{\gdef\@type{\ifingerman Bachelorarbeit\else Version v0.+.0 \fi}}
-\DeclareOption{st}{\gdef\@type{\ifingerman Semesterarbeit\else Version Draft\fi}}
+\DeclareOption{mt}{\gdef\@type{\ifingerman Spezifikation\else Version 1.0.0 Specification\fi}}
+\DeclareOption{bt}{\gdef\@type{\ifingerman Protokoll \else Version v0.+.0 \fi}}
+\DeclareOption{st}{\gdef\@type{\ifingerman Unveröffentlicht \else Version Draft\fi}}
 
 \ExecuteOptions{german,st}
 \ProcessOptions
@@ -75,19 +70,7 @@
 16608 65520
 }\nsdata
 
-\usepackage[printwatermark]{xwatermark}
-\usepackage{xcolor}
-\usepackage{lipsum}
-\newsavebox\mybox
-%% WATERMARKING %%
-\savebox\mybox{\tikz[color=red,opacity=0.3]\node{DRAFT};}
-\newwatermark*[
-  allpages,
-  angle=45,
-  scale=6,
-  xpos=-20,
-  ypos=15
-]{\usebox\mybox}
+
 
 %%% END OF CUSTOM PKGS %% 
 
@@ -95,6 +78,7 @@
 \RequirePackage{german,ae}
 \fi
 
+%%%% LEFTOVERS FROM ETH ZURICH TEMPLATE 
 \newcommand{\@supervision}{}
 \newcommand{\supervision}[1]{\gdef\@supervision{#1}}
 
@@ -139,7 +123,7 @@
 
 \vspace*{-2cm}
 
-
+%%% This draws the graphics
 \vspace*{5.0cm}
     \begin{tikzpicture}[scale=2]
 \pgfsetfillcolor{lightgray}
@@ -167,13 +151,13 @@
  Regelungstechnik\\
  \\
 \else
- Petersburg+\\
+ Volumetric Control Protocol+\\
  \\
 \fi
 \vspace{3.5cm}
 
 \ifingerman
- {\bf Betreuung} \\[1.5ex]
+ {\bf Volumeneffizienz Regelungstechnik} \\[1.5ex]
 \else
  {\bf Release Candidate } \\[1.5ex]
 \fi
@@ -223,7 +207,7 @@ Dynamic Systems and Control\\
 {\bf Titel der Arbeit: \\[1ex]}
 {\LARGE \@title \\[1ex] \par}
 \else
-{\bf Title of work: \\[1ex]}
+{\bf Protocol \\[1ex]}
 {\LARGE \@title \\[1ex] \par}
 \fi
 
@@ -251,31 +235,26 @@ Dynamic Systems and Control\\
 \fi
 \vspace{1cm}
 
-\ifingerman
-{\bf \ifstudentB Studenten:\else Student: \fi}
-\else
-{\bf \ifstudentB Students:\else Student: \fi}
-\fi
+{\bf Freight Trust & Clearing Corporation}
 \begin{tabbing}
 \hspace*{3cm}  \= \kill
-Name: \> \@studentA \\
-E-mail: \> \@emailA \\
-Legi-Nr.: \> \@ethidA \\
-Semester: \> \@semesterA
+ \>  \\
+1424 4th St Ste 214 PMB 1513 \> \\
+Santa Monica, CA 90401 \>  \\
+254900C9UJMDGJ0ILK56 \> 
+
 \end{tabbing}
 
-\if\@studentB \else
+
+
+
 \begin{tabbing}
 \hspace*{3cm}  \= \kill
-Name: \> \@studentB \\
-E-mail: \> \@emailB \\
-Legi-Nr.: \> \@ethidB \\
-Semester: \> \@semesterB
+
 \end{tabbing}
-\fi
+
 \vspace{1cm}
 
-\if\@declaration \else \@declaration \fi
 
 \normalsize 
 }

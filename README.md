@@ -1,10 +1,16 @@
-# Embedded Volumetric Optionality
+
+<br>
+
+
+<img src="cover_img.png">
+<br>
+
 
 | EVOProtocol | Embededd Volumetric Optionality Protocol | v0.8.0 |
 | ----------- | ---------------------------------------- | ----- |
 
 
-## Overview
+## Embedded Volumetric Optionality
 
 EVO tokens are minted and burned on-demand by deposit and withdraw operations directly via the contract.
 
@@ -40,7 +46,11 @@ Thresholds are tracked individually per address as the average rate and have a f
 
 ## Architecture & Engineering 
 
+Discussed in **chapter 3**
+
 ## Safeguards and Tooling
+
+Discussed in **chapter 4**
 
 ## Security
 

@@ -5,14 +5,21 @@
 %% This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 %% You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston
 
+
+
 \chapter{Introduction}\label{sec:introduction}
 
-EVO Protocol presents an idea of embedded volumetric optionality, which in essence is a mechanism for controllable liquidity through the mechanism of volume. Any asset would be "less" accelerating in price swings depending on the chose parameters. One consequence is that significant volume movements, such as "rug pulls" or legitimate price action movements, incur a cost onto the liquidating party. This, in essence, ensures orderly market liquidation to a degree with an additional benefit of helping provide an orderly unwinding / unwinding period for instruments utilizing the protocol. Instruments may produce predictable inflation rates, enabling them to be lent out through other protocols, furthering market stabilizing effects. Such token can be a reasonable investment choice purposed for the "storage of value".
+EVO Protocol presents an idea of embedded volumetric optionality, which in essence is a mechanism for controllable liquidity through the mechanism of volume. Any asset would be "less" accelerating in price swings depending on the chose parameters. One consequence is that significant volume movements, such as "rug pulls" or
+legitimate price action movements, incur a cost onto the liquidating party. This, in essence, ensures orderly market liquidation to a degree with an additional
+benefit of helping provide an orderly unwinding / unwinding period for instruments utilizing the protocol. Instruments may produce predictable inflation rates,
+enabling them to be lent out through other protocols, furthering market stabilizing effects. Such token can be a reasonable investment choice purposed for the "storage of value".
 
 
 
 \section{Abstract}\label{sec:preamble}
-A Generalized Protocol Specification for Volumetric Manifolds and a reference implementation. Features include an embedded  volumetric mechanism to enforce desired behaviors based upon robust economic incentives.
+A Generalized Protocol Specification for Volumetric Manifolds and a reference implementation. Features include an embedded  volumetric mechanism to enforce desired
+behaviors based upon robust economic incentives.\footnote{An analogy to help understand these terms is the \textbf{ManifoldSystem}. The \textbf{ManifoldEpoch} is
+equivalent to the Epoch, the \textbf{ManifoldVolume} is equivalent to the transfer rate, and the \textbf{ManifoldFee} is the Fee for the Transfer Rate.}
 %\lstset{language=TeX,numbers=none}
 %\begin{lstlisting}[frame=lines]
 \begin{verbatim}
@@ -22,7 +29,81 @@ transaction execution, price stability, self stability
  \end{verbatim}
 %\end{lstlisting}
 
-An analogy to help understand these terms is the \textbf{ManifoldSystem}. The \textbf{ManifoldEpoch} is equivalent to the Epoch, the \textbf{ManifoldVolume} is equivalent to the transfer rate, and the \textbf{ManifoldFee} is the Fee for the Transfer Rate. 
+ \newpage
+
+
+\subsection{Transaction Unwinding: Risk and Execution and Settlement}
+
+How does selling against an order book work? How do you measure risk of not being able to liquidate your position? Any trader (esp. low volume
+low liquidity) can tell you how a tin order book will make it 
+impossible to profit on a trade. We can look at Almgren's Optimal 
+Execution of Portfolio Transactions\footnote{Almgren 1998, https://www.math.nyu.edu/faculty/chriss/optliq_f.pdf} on their analysis of the situation:
+
+\subsection{Trade Half Life}
+This analysis yields a number we call the "half-life" of a trade, the 
+natural time for execution in the absence of exogenous time 
+constraints. For example, in trading a highly illiquid, volatile 
+security, there are two extreme strategies: trade everything now at a 
+known, but high cost, or trade in equal sized packets over $x$ time 
+at a relatively lower cost. The latter strategy has lower expected cost but this comes at the expense of greater uncertainty in total revenue.
+
+
+\qupte{Optimal Execution of Portfolio Transactions}
+
+\subsection{Front Running and Backrunning}
+This can be expressed as the common "Gas Wars" events of network 
+congestion on ethereum foundation, or sending in a transaction knowingly under priced in the expectation it will be included in a block in $x$ amount of time from now. Basically discounting a future 
+block inclusion as an acceptable cost versus having it included relatively sooner (i.e. you would rather spend less get it later than 
+spend more and have it now).
+
+T{wait}=\text{discounted future block inclusion }
+
+\equation{$$Twait$$ discounted future block inclusion}
+
+\equation{$$Tunwind$$ time to liquidate position}
 
 
 
+We can define this as what we call the time it takes to unwind a position (i.e. liquidation period)
+
+\newline
+
+All we can do is insist that for a given level uncertainty, cost be minimized.We can say that trade execution is the "Dynamic trading
+strategy that provides the minimum expected cost of trading over $x$
+period of time"\footnote{Almgren 1998}. As such we can say that the
+strategy employed for transaction pricing in the first auction system
+can be that of expectations of future physical settlement (i.e.
+transaction being included in the block) versus willingness to pay for
+that inclusion (i.e bidding expressed in transaction fees).
+
+\subsection{Volumetric Contracting}
+
+A Volumetric futures contract would be buying a contract for a certain
+volume of goods, such as freight space, gas (i.e. natural gas
+products), or $block space$. Block space as a tradable volumetric
+futures contract could be achieved by creating a set of contracts in
+which gas token can either be re-packaged, re-sold (auction), or burned and minted.
+
+\subsection{Establishing Parameters for Transfer Rate}
+
+\begin{tabular}{llrr}
+\hline Strategy & Parameter & Gas price & Blocks waited \\
+\hline Geth & \(S =1.0\) & 4,414,902,746 & 1.97 \\
+Geth & \(S =0.9\) & 4,080,968,868 & 15.49 \\
+Geth & \(S =0.8\) & 3,531,922,197 & 25.52 \\
+\hline Look-ahead & \(B =15\) & 1,166,965,099 & 4.80 \\
+Look-ahead & \(B =30\) & 969,559,938 & 8.52 \\
+Look-ahead & \(B =60\) & 782,105,012 & 18.84 \\
+\hline Proposed approach & \(U =1.0\) & 2,120,108,703 & 3.28 \\
+Proposed approach & \(U =0.9\) & 1,908,097,833 & 3.79 \\
+Proposed approach & \(U =0.8\) & 1,696,086,963 & 5.13 \\
+Proposed approach & \(U =0.7\) & 1,484,076,092 & 10.06
+\end{tabular}
+\newline
+\subsection{Contract Delivery and Contract Rollover Dates}
+
+We can extrapolate the contract for date of delivery as being subsets
+of $B$ and be able to approximate ideal delivery time for
+contracts. To the extent of future pricing concerns could express
+themselves beyond 30 days is likely unrealistic at this stage. 
+This preliminary model is used in deciding the parameters for the first market on \textbf{evo protocol}, gasevo, which is $25 days$
