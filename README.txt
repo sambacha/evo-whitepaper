@@ -1,3 +1,23 @@
+%=================================================================================
+%                                 Protocol Specification
+% 
+%
+%
+%          .+------+     +------+     +------+     +------+     +------+.
+%        .' |    .'|    /|     /|     |      |     |\     |\    |`.    | `.
+%        +---+--+'  |   +-+----+ |     +------+     | +----+-+   |  `+--+---+
+%        |   |  |   |   | |    | |     |      |     | |    | |   |   |  |   |
+%        |  ,+--+---+   | +----+-+     +------+     +-+----+ |   +---+--+   |
+%        |.'    | .'    |/     |/      |      |      \|     \|    `. |   `. |
+%        +------+'      +------+       +------+       +------+      `+------+
+%
+%
+%                                    evo.protocol
+%                                      v0.9.0
+%
+%==============================================================================
+
+
 The evoPROTOCOL program is a utility for making many global 
 search-and-replace changes in a text file.  It is useful for changing 
 a file designed for one exotic font into a file designed for another. 
@@ -23,9 +43,9 @@ and, if you want complete documentation, one of the following files:
 
 *****************************************************************************
 Sam Bacha
-[197b0697-3911-47ba-b5a9]                		  voice:  (215) 573-3171
+[197b0697-3911-47ba-b5a9]                	
 [e5a318392f3a]
-[bd7a-df69489db64c]  [03b26c7-80]    				www: http://manifold.fiannce
+[bd7a-df69489db64c]  [03b26c7-80]    			www: http://manifold.fiannce
 *****************************************************************************
 
 last modified: 09/27/2020
