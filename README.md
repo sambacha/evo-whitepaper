@@ -32,10 +32,10 @@ Multiples of 4,6, etc are suggested
 * For Example
     `25` days has` 36000 minutes`, which divided by `block_time=4` gives `9000`
 
-GasEVO is determined both in aggregate (dynamically) and individually for each address based on transactional (i.e. volumetric transactional information) stored and updated through the smart contract during the previous transactions.
+GasEVO is determined both in `aggregate` (dynamically) and `individually` for each address based on transactional (i.e. volumetric transactional information) stored and updated through the smart contract during the previous transactions.
  <br>
 
-All three operations such as deposit, `withdraw` and transfer can equally contribute to the transfer rates that are tracked totally and individually(as per holder) by the smart contract for the period of the last `25 days`.  <br>
+All three operations such as `deposit`, `withdraw` and `transfer` can equally contribute to the `transfer` rates that are tracked totally and individually(as per holder) by the smart contract for the period of the last `25 days`.  <br>
 The token price is determined dynamically(and individually for each holder) based on the information stored or updated in the smart contract during previous transactions:
 
 
