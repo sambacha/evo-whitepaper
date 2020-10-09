@@ -9,23 +9,31 @@
 | ----------- | ---------------------------------------- | ----- |
 
 
-## Embedded Volumetric Optionality
+## Embedded Volumetric Optionality Protocol
+
+## Abstract 
+EVO Protocol is a dynamically adjusting ERC-compatible protocol that adjusts based on _volume_
+<br>
 
 EVO tokens are minted and burned on-demand by deposit and withdraw operations directly via the contract.
 
 > Initiated Protocol Operations
 
-Deposit <br>
-Withdraw <br>
-Transfer <br>
+* Deposit <br>
+* Withdraw <br>
+* Transfer <br>
 
-These operations contribute to transfer rates. 
-Transfer rates are tracked both in aggregate and individually (i.e. per address).
-The `period of time` for tracking is the last 25 days
+These operations contribute to `transfer rates`. 
+`Transfer rates` are tracked both in `aggregate` and `individually` (i.e. per address).
+The `period of time` for tracking is the last `25 days`. 
+
 
 ### Time and Period 
 
 > [V2 Upgrade will include upgrading the time and date to a new libray](https://github.com/bokkypoobah/BokkyPooBahsDateTimeLibrary)
+
+Time and Period should be defined on a `per market` basis. Meaning you should choose what is computed to be the _optimal_ time period based on historical analysis.
+
 
 Multiples of 4,6, etc are suggested 
 
@@ -43,11 +51,18 @@ The token price is determined dynamically(and individually for each holder) base
 
 
 ## Utility
+<!-- EN: specifcaiton -->
+<!-- DE: spezifikation -->
 
-Given enough liquidity (assuming frequent transactions) GasEVO has a way to compute the `exchange rate` towards the base instrument (ETH). <br>
-Like this, movements of the bigger or significant volumes can be interpreted as market trends (i.e. higher gwei pricing.) <br>
+> Note: This is specific to the implementation based on the reference specification , as described in the whitepaper (./latex/**/*.tex)
 
-By utilizing small volume movements and disincentivizing the larger ones without compensation to holders every exceeding unusual trade of the token is tracked by the smart contract and higher "interest" fees are applied (re: withdraw, or 'consumption').
+Given enough liquidity, `GasEVO` has a way to compute the `exchange rate` towards the base instrument (ETH). <br>
+
+Like this, movements of the bigger or significant volumes can be interpreted as market trends (i.e. `gwei` pricing.) <br>
+
+By utilizing small volume movements and disincentivizing the larger ones without compensation to holders every exceeding `bulge bracket` trade of the token is tracked by the smart contract and higher "transactional" fees are applied (re: withdraw, or 'consumption').
+
+> Note: We describe `transactional` fees sometimes as an `interest` fee. This language is marked as _depreciated_ as this confers and/or implies a rate of return that is somewhat deterministic, this however is not the case per se as it is entirely possible that all trades could be below the `transfer rate` during a period/epoch.
 
 Transference of funds _below_ daily volume threshold does not impose any interest fee. <br>
 
