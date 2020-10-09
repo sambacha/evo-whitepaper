@@ -1,5 +1,6 @@
-# gitattributes for LaTeX & Documents
 
+# gitattributes for LaTeX & Documents
+*.png diff=exif
 *.tex	diff=tex
 * text=auto
 *.pdf  diff=astextplain
@@ -8,4 +9,3 @@
 # github export configuration
 .gitattributes export-ignore
 .gitignore export-ignore
-
