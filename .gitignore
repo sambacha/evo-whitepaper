@@ -2,6 +2,7 @@ node_modules
 *.zip
 *.tar.gz
 
+distribution/
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
