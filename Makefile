@@ -1,33 +1,9 @@
-# Boilerplate Makefile for LaTeX
-filename=MAIN_LATEX_FILE_NAME_WITHOUT_.tex
+define npm_script_targets
+TARGETS := $(shell node -e 'for (var k in require("./package.json").scripts) {console.log(k.replace(/:/g, "-"));}')
+$$(TARGETS):
+	npm run $(subst -,:,$(MAKECMDGOALS))
 
-pdf: ps
-	ps2pdf ${filename}.ps
+.PHONY: $$(TARGETS)
+endef
 
-pdf-print: ps
-	ps2pdf -dColorConversionStrategy=/LeaveColorUnchanged -dPDFSETTINGS=/printer ${filename}.ps
-
-text: html
-	html2text -width 100 -style pretty ${filename}/${filename}.html | sed -n '/./,$$p' | head -n-2 >${filename}.txt
-
-html:
-	@#latex2html -split +0 -info "" -no_navigation ${filename}
-	htlatex ${filename}
-
-ps:	dvi
-	dvips -t letter ${filename}.dvi
-
-dvi:
-	latex ${filename}
-	bibtex ${filename}||true
-	latex ${filename}
-	latex ${filename}
-
-read:
-	evince ${filename}.pdf &
-
-aread:
-	acroread ${filename}.pdf
-
-clean:
-	rm -f ${filename}.{ps,pdf,log,aux,out,dvi,bbl,blg}
+$(eval $(call npm_script_targets))
