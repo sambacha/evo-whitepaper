@@ -1,11 +1,31 @@
+# gitattributes
+*.build  text
+*.cs     text diff=csharp
+*.csproj text
+*.dll    binary
+*.dtd    text
+*.html   text diff=html
+*.java   text diff=java
+*.md     text
+*.nuspec text
+*.rng    text
+*.rngc   text
+*.sh     eol=lf
+*.shfbproj text
+*.sln    text
+*.snk    binary
+*.xml    text
+*.xsd    text
+*.xsl    text
+*.yml    text
+.gitattributes text
+KEY      text
+LICENSE* text
 
-# gitattributes for LaTeX & Documents
+# github specific
+src/gatsby-theme-carbon/* linguist-vendored
+#*.js linguist-vendored=false
+
+*.json diff=json
 *.png diff=exif
-*.tex	diff=tex
-* text=auto
-*.pdf  diff=astextplain
-*.PDF  diff=astextplain
-
-# github export configuration
-.gitattributes export-ignore
-.gitignore export-ignore
+*.svg diff=exif
