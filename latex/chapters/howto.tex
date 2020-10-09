@@ -5,7 +5,6 @@
 %% This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
 %% You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston
-
 \chapter{EVO Protocol }\label{sec:evoprotocol}
 
 
@@ -272,7 +271,7 @@ avg(Rt + 1(h, a)): = avg(Rt(h)) + a
 \label{sec:Calculations}
 \subsection{Total average daily transfer rate for all holders}
 \begin{equation}
-avg(R¯ t + 1(h, a)): = avg(R¯t(h)) + a
+avg(Rt + 1(h, a)): = avg(Rt(h)) + a
 \end{equation}
 
 \subsection{Calculations Example}
@@ -388,8 +387,6 @@ weighted by the function $w: E \rightarrow \mathbb{R}^{+}$ corresponding to the 
 
 
 $ V,|V| \leq|\mathbb{N}| $
-
-
 
 Consider an abstract liquid trading (ALT) system as a weighted directed graph $G:=(V, E, w),$ where set of vertices $V,|V| \leq|\mathbb{N}|$ contains digital representation of all trade-able assets in $G,$ set of edges $E=\{e \in V \times V:$ $w(e)>0\}$ represents all possible atomic $^{79}$ asymmetric $^{80}$ trades, which are weighted by the function $w: E \rightarrow \mathbb{R}^{+}$ corresponding to the price of some trade $e \in E$
 
@@ -566,102 +563,3 @@ created using
 \end{enumerate}
 \end{verbatim}
 
-The following example uses \texttt{description} to create a list with custom text as bullet-points
-\begin{description}
-  \item[P1] point one; and
-  \item[P2] point two
-\end{description}
-created using
-\begin{verbatim}
-\begin{description}
-  \item[P1] point one; and
-  \item[P2] point two
-\end{description}
-\end{verbatim}
-
-
-\section{Tables}\label{sec:tables}
-Table~\ref{tab:table} shows an example of a simple table-layout. Try to avoid vertical lines on tables. The Internet contains countless resources on how to create special elements and structures in tables such as cells spanning multiple rows, rotated text, sideways tables, justification of cell elements, etc.
-\begin{table}[ht]
-\begin{center}
-\caption{Driving cycle data of ECE-15, EUDC, and NEDC.}\vspace{1ex}
-\label{tab:table}
-\begin{tabular}{llccc}\hline
-Description & Unit & ECE & EUDC & NEDC \\ \hline
-Duration & s & 780 & 400 & 1180 \\
-Distance & km & 4.052 & 6.955 & 11.007 \\
-Average velocity & km/h & 18.7 &  62.6 & 33.6 \\
-Idle speed & \% & 36 & 10 & 27 \\ \hline
-\end{tabular}
-\end{center}
-\end{table}
-
-This table was created using
-\begin{verbatim}
-\begin{table}[ht]
-\begin{center}
-\caption{Driving cycle data of ECE-15, EUDC, and NEDC.}\vspace{1ex}
-\label{tab:table}
-\begin{tabular}{llccc}\hline
-Description & Unit & ECE & EUDC & NEDC \\ \hline
-Duration & s & 780 & 400 & 1180 \\
-Distance & km & 4.052 & 6.955 & 11.007 \\
-Average velocity & km/h & 18.7 &  62.6 & 33.6 \\
-Idle speed & \% & 36 & 10 & 27 \\ \hline
-\end{tabular}
-\end{center}
-\end{table}
-\end{verbatim}
-Table~\ref{tab:table_advanced} shows a more advanced version of Tab.~\ref{tab:table} using the \texttt{booktabs} package. Inspect the source code of this document to see how this was done.
-\begin{table}[ht]
-\begin{center}
-\small
-\caption{Driving cycle data of ECE-15, EUDC, and NEDC.}\vspace{1ex}
-\label{tab:table_advanced}
-\begin{tabular}{@{}lcccc@{}}\toprule[1.5pt]
-& & \multicolumn{3}{c}{\bf Driving cycle}\\
-\cmidrule{3-5}
-Description & Unit & {ECE} & {EUDC} & {NEDC} \\ \midrule
-Duration & \unit[]{s} & 780 & 400 & 1180 \\
-Distance & \unit[]{km} & 4.052 & 6.955 & 11.007 \\
-Average velocity & \unitfrac[]{km}{h} & 18.7 &  62.6 & 33.6 \\
-Idle speed & \unit[]{\%} & 36 & 10 & 27 \\ \bottomrule[1.5pt]
-\end{tabular}
-\end{center}
-\end{table}
-
-
-
-\section{Working with Units}
-The package \texttt{\textbackslash usepackage\{units\}} enables two useful commands, namely \texttt{\textbackslash unit[.]\{.\}} and \\ \texttt{\textbackslash unitfrac[.]\{.\}\{.\}}. Use these commands to display units in a concise way, for example
-\begin{align}
-\delta t &= \unit[1]{s}\\
-v &= \unitfrac[5]{m}{s}.
-\end{align}
-This example was done using
-\begin{verbatim}
-\begin{align}
-\delta t &= \unit[1]{s}\\
-v &= \unitfrac[5]{m}{s}.
-\end{align}
-\end{verbatim}
-
-\section{Including Graphics}\label{sec:epsgraph}
-It is recommended that you only use encapsulated post-script graphics \texttt{.eps} in your report. If you mix \texttt{.eps} with other formats such as \texttt{.png}, \texttt{.jpeg} or \texttt{.gif}, you will most likely not be able to compile your report without errors. Note that figures created in \textsc{Matlab} are easily saved in \texttt{.eps} format.
-
-The inclusion of a figure can be done in the following way:
-\begin{verbatim}
-\begin{figure}[ht]
-   \centering
-   \includegraphics[width=0.75\textwidth]{img/k_surf.eps}
-   \caption{Analogy for manifolds}
-   \label{img:k_surf}
-\end{figure}
-\end{verbatim}
-
-\begin{figure}[ht]
-   \centering
-   \includegraphics[width=0.75\textwidth]{img/k_surf.eps}
-   \caption{Example of a figure.}
-   \label{img:k_surf}
-\end{figure}
