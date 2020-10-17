@@ -1,21 +1,42 @@
 %% Copyright 2020 All Rights Reserved
 %% SPDX-License-Identifier: GNU General Public License v2.0 only
 %% 
-%% This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; version 2.
-%% This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
-%% You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston
+%%  This program is free software; you can redistribute it and/or modify it
+%%  under the terms of the GNU General Public License as published by the Free
+%%  Software Foundation; version 2.
+%% 
+%%  This program is distributed in the hope that it will be useful, but WITHOUT
+%%  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+%%  FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+%%  You should have received a copy of the GNU General Public License along
+%%  with this program; if not, write to the Free Software Foundation, Inc., 51
+%%  Franklin Street, Fifth Floor, Boston
 
 
 
 %% EVO %% 
+%% EVO %% 
+
 \chapter{Introduction}\label{sec:introduction}
 
-EVO Protocol presents an idea of embedded volumetric optionality, which in essence is a mechanism for controllable liquidity through the mechanism of volume. Any asset would be "less" accelerating in price swings depending on the chose parameters. One consequence is that significant volume movements, such as "rug pulls" or legitimate price action movements, incur a cost onto the liquidating party. This, in essence, ensures orderly market liquidation to a degree with an additional benefit of helping provide an orderly unwinding / unwinding period for instruments utilizing the protocol. Instruments may produce predictable inflation rates, enabling them to be lent out through other protocols, furthering market stabilizing effects. Such token can be a reasonable investment choice purposed for the "storage of value".
+EVO Protocol presents an idea of embedded volumetric optionality, which in essence is a mechanism for controllable
+liquidity through the mechanism of volume. Any 
+asset would be "less" accelerating in price swings depending on the chose parameters. One consequence is that
+significant volume movements, such as "rug pulls" or 
+legitimate price action movements, incur a cost onto the liquidating party. This, in essence, ensures orderly market
+liquidation to a degree with an additional 
+benefit of helping provide an orderly unwinding / unwinding period for instruments utilizing the protocol. Instruments
+may produce predictable inflation rates, 
+enabling them to be lent out through other protocols, furthering market stabilizing effects. Such token can be a
+reasonable investment choice purposed for the 
+"storage of value".
 
 \section{Abstract}\label{sec:preamble}
-A Generalized Protocol Specification for Volumetric Manifolds and a reference implementation. Features include an embedded 
+A Generalized Protocol Specification for Volumetric Manifolds and a reference implementation. Features include an
+embedded 
 volumetric mechanism to enforce desired behaviors
-based upon robust economic incentives.\footnote{An analogy to help understand these terms is the \textbf{ManifoldSystem}. The \textbf{ManifoldEpoch} is equivalent to the Epoch,
+based upon robust economic incentives.\footnote{An analogy to help understand these terms is the
+\textbf{ManifoldSystem}. The \textbf{ManifoldEpoch} is equivalent to the Epoch,
 the \textbf{ManifoldVolume} is equivalent to the
 transfer rate, and the \textbf{ManifoldFee} is the
 Fee for the Transfer Rate.}
@@ -32,10 +53,12 @@ transaction execution, price stability, self stability
 
 \subsection{Transaction Unwinding: Risk and Execution and Settlement}
 
-How does selling against an order book work? How do you measure risk of not being able to liquidate your position? Any trader (esp. low volume
+How does selling against an order book work? How do you measure risk of not being able to liquidate your position? Any
+trader (esp. low volume
 low liquidity) can tell you how a tin order book will make it 
 impossible to profit on a trade. We can look at Almgren's Optimal 
-Execution of Portfolio Transactions\footnote{Almgren 1998, https://www.math.nyu.edu/faculty/chriss/optliq_f.pdf} on their analysis of the situation:
+Execution of Portfolio Transactions\footnote{Almgren 1998, https://www.math.nyu.edu/faculty/chriss/optliq_f.pdf} on
+their analysis of the situation:
     \vspace{2mm}
 \subsection{Trade Half Life}
 This analysis yields a number we call the "half-life" of a trade, the 
@@ -43,21 +66,24 @@ natural time for execution in the absence of exogenous time
 constraints. For example, in trading a highly illiquid, volatile 
 security, there are two extreme strategies: trade everything now at a 
 known, but high cost, or trade in equal sized packets over $x$ time 
-at a relatively lower cost. The latter strategy has lower expected cost but this comes at the expense of greater uncertainty in total revenue.
+at a relatively lower cost. The latter strategy has lower expected cost but this comes at the expense of greater
+uncertainty in total revenue.
     \vspace{2mm}
 \subsection{Optimal Execution of Portfolio Transactions}
     \vspace{2mm}
 \subsection{Front Running and Backrunning}
 This can be expressed as the common "Gas Wars" events of network 
-congestion on ethereum foundation, or sending in a transaction knowingly under priced in the expectation it will be included in a block in $x$ amount of time from now. Basically discounting a future 
-block inclusion as an acceptable cost versus having it included relatively sooner (i.e. you would rather spend less get it later than 
+congestion on ethereum foundation, or sending in a transaction knowingly under priced in the expectation it will be
+included in a block in $x$ amount of time from now. Basically discounting a future 
+block inclusion as an acceptable cost versus having it included relatively sooner (i.e. you would rather spend less get
+it later than 
 spend more and have it now).
 
 $Twait$\text{discounted future block inclusion }
     \vspace{2mm}
 $Twait$\text{ discounted future block inclusion}
     \vspace{2mm}
-\equation{$$Tunwind$$ time to liquidate position}
+$$Tunwind$$ time to liquidate position
 
 
 
@@ -65,7 +91,8 @@ We can define this as what we call the time it takes to unwind a position (i.e. 
 
     \vspace{2mm}
 
-All we can do is insist that for a given level uncertainty, cost be minimized.We can say that trade execution is the "Dynamic trading
+All we can do is insist that for a given level uncertainty, cost be minimized.We can say that trade execution is the
+"Dynamic trading
 strategy that provides the minimum expected cost of trading over $x$
 period of time"\footnote{Almgren 1998}. As such we can say that the
 strategy employed for transaction pricing in the first auction system
@@ -106,26 +133,57 @@ express themselves beyond 30 days is  likely unrealistic at this stage.
 This preliminary model is used in deciding the parameters for the first market on \textbf{evo 
 protocol}, gasevo, which is $24 days$
     \vspace{2mm}
-In the paper Blockchain Resource Pricing \footnote{page 14 of https://github.com/ethereum/research/raw/master/papers/pricing/ethpricing.pdf p43)} Buterin
+In the paper Blockchain Resource Pricing \footnote{page 14 of
+https://github.com/ethereum/research/raw/master/papers/pricing/ethpricing.pdf p43)} Buterin
 illustrates that how under, "full block conditions, cryptocurrency price fluctuation is lower than
 transaction fee fluctuations". By denominating things as "fixed fees" which utilize a unit of
 account denominated in cryptocurrency, it actually leads to more (fiat-denominated) price
-predictability than a market with bidding and a gas limit. In essence this is a "cap and trade" regime of monetary policy. 
+predictability than a market with bidding and a gas limit. In essence this is a "cap and trade" regime of monetary
+policy. 
     \vspace{2mm}
 
-
-\quote{The regression finds that, after accounting for this social uncle rate, one byte accounts for an
+\subsection{Ethereum as a Cap and Trade Regime}
+The regression finds that, after accounting for this social uncle rate, one byte accounts for an
 additional ~0.000002 uncle rate. Bytes in a transaction take up 68 gas, of which 61 gas accounts
 for its contribution to bandwidth (the remaining 7 is for bloating the history database). If we
-want the bandwidth coefficient and the computation coefficient in the gas table to both reflect propagation time, then this implies that if we wanted to really 
-optimize gas costs, we would need to increase the gas cost per byte by 50 (ie. to 138). This would also entail raising the base gas cost of a transaction by 5500 
-(note: such a re balance would not mean that everything gets more
+want the bandwidth coefficient and the computation coefficient in the gas table to both reflect
+propagation time, then this implies that if we wanted to really optimize gas costs, we would need
+to increase the gas cost per byte by 50 (ie. to 138). This would also entail raising the base gas
+cost of a transaction by 5500 (note: such a re balance would not mean that everything gets more
 expensive; the gas limit would be raised by ~10% so that the average-case transaction throughput
-would remain unchanged). } Vitalik Buterin, ethermagican forums. 
-    \vspace{2mm}
+would remain unchanged). 
+\quote{Vitalik Buterin, ethermagican forums}
 
+\vspace{2mm}
 \footnote{ One relatively simple way to implement this is that ½ of the tx fee goes to the miner
 who mined the tx, and the other ½ goes into the "spread-out tx fee bucket". Each time a block is
 mined, 1% of the ZEC in the "spread-out tx fee bucket" goes to the miner who mined that block.
 }
 
+\section{A Fiction of Value}
+'Fictitious Capital' is the price of a non-produced resource like land. Since the ownership of the
+land entails a stream of rent payments in the future, the capitalized value of these prospective
+rent payments can generate a market price of the plot of land.  The common modern conception of the functions of money
+includes a store of value, unit of account and a medium of exchange.
+
+It is common to consider functions of money as a medium of exchange, store of value and unit of 
+account. In this work we highlight yet another function of money, namely as a unit of contract 
+execution. Historically, there has always been an implicit paper contract behind money. However, 
+with the rise of cryptocurrencies, we now have 'programmable money', where it is easy to bind 
+digital assets to an explicit contract. We use the term contractual money to refer to digital 
+money with a usage contract in the form of executable code.
+
+An example of 'fictitious capital' is the price of a non-produced resource like land.
+Since ownership of the land entails a stream of rent payments in the future, the capitalized value
+of these prospective rent payments can generate a market price of the plot of land. For the owner 
+of the plot of land, the price of the plot of land functions like capital, generating a stream of 
+profit-like
+
+
+\footnote{The paradox for the labour theory of value that there are items in capitalism which command a 
+price but have no value, i.e., have zero embodied socially necessary abstract labour.}
+
+\footnote{Our forthcoming stack, Maidenlane, is a  dematerialization protocol for contractual agreements, i.e  a unit of
+contract 
+execution. The physicality of documentary trade is replaced by a new paradigm of electronic 
+scarcity, expressed normally through a distributed blockchain protocol.  }
