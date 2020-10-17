@@ -4,17 +4,26 @@
   "description": "specifications for manifolds",
   "main": "index.js",
   "scripts": {
-    "docker-build": "./scripts/ltx_docker.sh"
+    "docker-build": "./scripts/ltx_docker.sh",
+    "make": "npm run-script"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sambacha/evo_spec.git"
   },
-  "keywords": [ "latex", "protocol", "defi", "ethereum"],
+  "keywords": [
+    "latex",
+    "protocol",
+    "defi",
+    "ethereum"
+  ],
   "author": "sam bacha <sam@freighttrust.com>",
   "license": "SSPL-1.0",
   "bugs": {
     "url": "https://github.com/sambacha/evo_spec/issues"
   },
-  "homepage": "https://github.com/sambacha/evo_spec#readme"
+  "homepage": "https://github.com/sambacha/evo_spec#readme",
+  "devDependencies": {
+    "node-latex": "^3.0.0"
+  }
 }
