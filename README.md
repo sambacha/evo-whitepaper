@@ -1,6 +1,6 @@
 <br>
 
-<img src="cover_img.png">
+<img src="https://raw.githubusercontent.com/sambacha/evo-whitepaper/master/cover_img.png">
 <br>
 
 | EVOProtocol | Embededd Volumetric Optionality Protocol | v1.0.0+0 |
@@ -9,7 +9,7 @@
 
 ## Embedded Volumetric Optionality Protocol
 
-## Abstract
+### Abstract
 
 EVO Protocol is a dynamically adjusting ERC-compatible protocol that adjusts based on _volume_
 <br>
