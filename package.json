@@ -24,6 +24,6 @@
   },
   "homepage": "https://github.com/sambacha/evo_spec#readme",
   "devDependencies": {
-    "node-latex": "^3.0.0"
+    "node-latex": "3.0.0"
   }
 }
