@@ -3,11 +3,15 @@
 <img src="https://raw.githubusercontent.com/sambacha/evo-whitepaper/master/cover_img.png">
 <br>
 
-| EVOProtocol | Embededd Volumetric Optionality Protocol | v1.0.0+0 |
+| EVOProtocol | Embededd Volumetric Optionality Protocol | v1.0.0+3 |
 | ----------- | ---------------------------------------- | -------- |
 
 
 ## Embedded Volumetric Optionality Protocol
+
+### Note
+
+UniswapV3 Integration Section To Be Released
 
 ### Abstract
 
